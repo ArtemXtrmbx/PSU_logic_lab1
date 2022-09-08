@@ -1,0 +1,30 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<locale.h>
+#include<math.h>
+
+const int N = 10;
+int random(int N) { return rand() % N; }
+
+int main()
+{
+ int i, Arr[N], max, min, raz;
+ setlocale(LC_CTYPE, "Russian");
+
+ for (i = 0; i < N; i++)
+ Arr[i] = random(70);
+
+ for (i = 1, min = Arr[0]; i < N; i++)
+ if (min > Arr[i]) { min = Arr[i]; }
+
+ for (i = 1, max = Arr[0]; i < N; i++)
+ if (max < Arr[i]) { max = Arr[i]; }
+
+ raz = max - min;
+ printf("\n Максимальное %4d\n", max);
+ printf("\n Минимальное %4d\n", min);
+ printf("\n Разность %4d\n", raz);
+ getchar();
+
+ return 0;
+}
